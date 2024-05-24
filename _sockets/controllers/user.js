@@ -1,4 +1,4 @@
-const {createSessionId} = require('../../services/Auth');
+const {createSessionId,errorLog} = require('../../services/services');
 const User = require('../models/user');
 const crypto = require('crypto');
 
@@ -29,6 +29,7 @@ async function signUp(req, res) {
         });
         
     }catch(err){
+        errorLog(err);
         console.log(err);
         return res.json({message:"Internal Server Error",ok:false});
     }

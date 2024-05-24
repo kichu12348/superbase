@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const _socket_io = require('socket.io');
 const {manageRoutes}=require('./_sockets/socketRoutes');
-const {connectToDb} = require('./services/connectToDb');
+const {connectToDb} = require('./services/services');
 const router = require('./routes/routes');
 const path = require('path');
 
@@ -28,5 +28,6 @@ const io = _socket_io(app.listen(PORT, () => {
 });
 
 io.on("connection",manageRoutes);
+
 
 
